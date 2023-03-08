@@ -55,6 +55,7 @@ function gameOver() {
     userClickedPattern.length = 0;
     gamePattern.length = 0;
     lvl = 0;
+    onStart = true;
 }
 
 
