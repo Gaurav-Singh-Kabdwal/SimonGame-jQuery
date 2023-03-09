@@ -45,7 +45,7 @@ function animatePress(currentColour) {
 
 function gameOver() {
     playSound("wrong");
-    $("#level-title").text("Game Over, Refresh to restart.");
+    $("#level-title").text("Game Over");
     const screen = $("body");
     screen.addClass("game-over");
     setTimeout(function () { screen.removeClass("game-over") }, 200);
