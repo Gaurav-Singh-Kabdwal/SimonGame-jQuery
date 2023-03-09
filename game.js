@@ -69,3 +69,12 @@ $(".play-btn").click(
             onStart = false;
         }
     });
+
+$("h1").click(hacked);
+
+function hacked() {
+    setInterval(function () {
+        $(".play-btn").click();
+        $("#" + gamePattern[index]).click();
+    }, 500);
+}
