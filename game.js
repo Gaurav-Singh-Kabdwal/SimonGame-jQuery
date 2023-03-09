@@ -70,11 +70,19 @@ $(".play-btn").click(
         }
     });
 
-$("h1").click(hacked);
+$("h1").click(
+    function () {
+        if (onStart) {
+            hacked();
+            onStart = false;
+        }
+    });
 
 function hacked() {
-    setInterval(function () {
-        $(".play-btn").click();
-        $("#" + gamePattern[index]).click();
-    }, 500);
-}
+    setInterval(
+        function () {
+            $(".play-btn").click();
+            $("#" + gamePattern[index]).click();
+        },
+        1000);
+}    
