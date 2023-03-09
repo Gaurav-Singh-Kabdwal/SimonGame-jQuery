@@ -1,5 +1,4 @@
 let lvl = 0;
-let index = 0;
 let onStart = true;
 let gamePattern = [];
 let userClickedPattern = [];
@@ -20,9 +19,8 @@ function handler() {
     const userChosenColour = this.id;
     playSound(userChosenColour);
     animatePress(userChosenColour);
-    if (gamePattern[index] == userChosenColour) {
+    if (gamePattern[userClickedPattern.length] == userChosenColour) {
         userClickedPattern.push(userChosenColour);
-        index++;
     }
     else {
         gameOver();
@@ -30,7 +28,6 @@ function handler() {
     }
     if (userClickedPattern.length == gamePattern.length) {
         userClickedPattern.length = 0;
-        index = 0;
         setTimeout(nextSequence, 1000);
     }
 }
@@ -58,9 +55,7 @@ function gameOver() {
     onStart = true;
 }
 
-
 $(".btn").click(handler);
-
 
 $(".play-btn").click(
     function () {
@@ -82,7 +77,7 @@ function hacked() {
     setInterval(
         function () {
             $(".play-btn").click();
-            $("#" + gamePattern[index]).click();
+            $("#" + gamePattern[userClickedPattern.length]).click();
         },
         1000);
 }    
